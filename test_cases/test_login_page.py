@@ -24,14 +24,14 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
+from utilities.read_properties import Read_Config
 from page_objects.Login_Page import Login_page
 
 class Test_Login_Page:
-    url="https://opensource-demo.orangehrmlive.com/web/index.php/auth/login"
-    username="Admin"
-    invalid_username="Admin45"
-    password="admin123"
+    url=Read_Config.get_admin_page_url()
+    username=Read_Config.get_username()
+    invalid_username=Read_Config.get_invalid_username()
+    password=Read_Config.get_password()
 
     def test_01_login_page_title(self,setup):
         self.driver=setup
