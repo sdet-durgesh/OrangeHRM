@@ -8,8 +8,8 @@ class Side_page:
     btn_login_xpath="//button[@type='submit']"
     btn_logout_xpath="//a[text()='Logout']"
     btn_prof_xpath="//li[@class='oxd-userdropdown']"
-
-    side_arrow="//button[@class='oxd-icon-button oxd-main-menu-button']"
+    default_home_sidebar="//*[@class='oxd-main-menu-item active toggle' ]"
+    side_arrow="//button[@class='oxd-icon-button oxd-main-menu-button']"   #default side bar is open
     search_bar="//input[@placeholder='Search']"
     side_menu_items="//ul[@class='oxd-main-menu']"
 
@@ -27,16 +27,16 @@ class Side_page:
     def click_login(self):
         self.driver.find_element(By.XPATH,self.btn_login_xpath).click()
 
-    def side_arrow_click(self):
-        self.driver.find_element(By.XPATH,self.side_arrow).click()
+    # def click_side_arrow(self):                  #default side bar is open
+    #     self.driver.find_element(By.XPATH,self.side_arrow).click()
 
-    def search_click(self):
+    def click_search(self):
         self.driver.find_element(By.XPATH,self.search_bar).click()
 
     def side_menu(self):
         self.driver.find_element(By.XPATH,self.side_menu_items)
 
-    def prof_click(self):
+    def click_prof(self):
         self.driver.find_element(By.XPATH,self.btn_prof_xpath).click()
 
     def click_logout(self):
