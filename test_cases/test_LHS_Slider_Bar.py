@@ -1,7 +1,6 @@
 import time
 
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 
 from utilities.custom_logger import Log_Maker
 from utilities.read_properties import Read_Config

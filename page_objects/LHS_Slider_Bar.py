@@ -12,6 +12,8 @@ class Side_page:
     side_arrow="//button[@class='oxd-icon-button oxd-main-menu-button']"   #default side bar is open
     search_bar="//input[@placeholder='Search']"
     side_menu_items="//ul[@class='oxd-main-menu']"
+    link_admin_xpath="//span[text()='Admin']"
+
 
     def __init__(self,driver):
         self.driver=driver
@@ -35,6 +37,9 @@ class Side_page:
 
     def side_menu(self):
         self.driver.find_element(By.XPATH,self.side_menu_items)
+
+    def click_admin(self):
+        self.driver.find_element(By.XPATH,self.link_admin_xpath).click()
 
     def click_prof(self):
         self.driver.find_element(By.XPATH,self.btn_prof_xpath).click()

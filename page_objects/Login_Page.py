@@ -8,6 +8,7 @@ class Login_page:
     btn_logout_xpath="//a[text()='Logout']"
     btn_prof_xpath="//li[@class='oxd-userdropdown']"
 
+
     def __init__(self,driver):
         self.driver=driver
 
@@ -22,7 +23,7 @@ class Login_page:
     def click_login(self):
         self.driver.find_element(By.XPATH,self.btn_login_xpath).click()
 
-    def prof_click(self):
+    def click_prof(self):
         self.driver.find_element(By.XPATH,self.btn_prof_xpath).click()
 
     def click_logout(self):
