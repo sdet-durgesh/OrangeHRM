@@ -83,3 +83,34 @@ class Test_Admin_Side_Bar:
         self.logger.info("**** Admin Side Bar test Ends ****")
         self.logger.info("**** test_05_admin_side_bar Passed ****")
         self.driver.close()
+
+
+    def test_06_admin_side_bar_headers(self, setup):
+        self.logger.info("*** test_05_admin_side_bar ****")
+        self.logger.info("**** Admin Side Bar test Start ****")
+        self.driver=setup
+        self.driver.get(self.url)
+        self.driver.maximize_window()
+        time.sleep(2)
+        self.obj_admin_side_bar=Admin_side_bar(self.driver)
+        self.obj_lp = Login_page(self.driver)
+        self.obj_lp.enter_email(self.username)
+        time.sleep(1)
+        self.obj_lp.enter_pass(self.password)
+        time.sleep(1)
+        self.obj_lp.click_login()
+        time.sleep(1)
+        search_field = self.obj_admin_side_bar.click_search_btn()
+        time.sleep(2)
+        search_field.clear()
+        search_field.send_keys("Admin")
+        time.sleep(2)
+        self.obj_lhs_sider_bar= Side_page(self.driver)
+        time.sleep(2)
+        self.obj_lhs_sider_bar.click_admin()
+        time.sleep(2)
+        job_options_list = self.obj_admin_side_bar.dropdown_items_user_management()
+
+        # Extract text from the list of WebElements and print
+        actual_options = [option.text for option in job_options_list]
+        print(f"\nCaptured User Management Options: {actual_options}")
